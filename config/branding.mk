@@ -25,6 +25,3 @@ KOMODO_PROPERTIES := \
     org.komodo.build_type=$(KOMODO_BUILD_TYPE) \
     org.komodo.fingerprint=$(ROM_FINGERPRINT)
 
-ifeq ($(KOMODO_BUILD_TYPE), OFFICIAL)
-PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/secure/releasekey
-endif
