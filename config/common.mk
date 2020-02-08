@@ -188,4 +188,8 @@ endif
 # Pixel Style
 include vendor/pixelstyle/config.mk
 
+# Screenshot permissions
+PRODUCT_COPY_FILES += \
+    vendor/komodo/config/permissions/com.android.screenshot.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.android.screenshot.xml
+
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
