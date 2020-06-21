@@ -15,6 +15,7 @@ PRODUCT_PACKAGES += \
 # Required
 PRODUCT_PACKAGES += \
     KomodoOverlays \
+    GVisualMod \
     OmniStyle \
     Longshot 
 
