@@ -16,6 +16,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     KomodoOverlays \
     GVisualMod \
+    AccentBasic \
     OmniStyle \
     Longshot 
 
