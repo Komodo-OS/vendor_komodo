@@ -14,11 +14,9 @@ PRODUCT_PACKAGES += \
 
 # Required
 PRODUCT_PACKAGES += \
-    ThemePicker \
-    komodoOverlayStub \
+    KomodoOverlays \
     OmniStyle \
-    Longshot \
-    NoCutoutOverlay
+    Longshot 
 
 # Extra apps
 ifeq ($(CURRENT_BUILD_TYPE), nogapps)
