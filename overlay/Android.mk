@@ -25,7 +25,6 @@ LOCAL_REQUIRED_MODULES := \
     KomodoDeviceSettings \
     KomodoDialer \
     KomodoDocumentsUI \
-    KomodoFrameworks \
     KomodoGallery2 \
     KomodoKeyguard \
     KomodoMessaging \
