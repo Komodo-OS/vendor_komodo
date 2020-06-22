@@ -16,9 +16,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     KomodoOverlays \
     GVisualMod \
-    AccentBasic \
-    AccentBrandedName \
-    AccentPrimary \
     OmniStyle \
     Longshot
 
@@ -32,3 +29,6 @@ PRODUCT_PACKAGES += \
     GboardGoPreb \
     ExactCalculator
 endif
+
+# Theme
+include vendor/komodo/overlay/theme.mk
