@@ -18,8 +18,9 @@ PRODUCT_PACKAGES += \
     GVisualMod \
     AccentBasic \
     AccentBrandedName \
+    AccentPrimary \
     OmniStyle \
-    Longshot 
+    Longshot
 
 # Extra apps
 ifeq ($(CURRENT_BUILD_TYPE), nogapps)
