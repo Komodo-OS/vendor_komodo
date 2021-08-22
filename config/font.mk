@@ -27,4 +27,6 @@ PRODUCT_PACKAGES += \
     SonySketchFont \
     StoropiaFont \
     SurferFont \
+    PoppinsFont \
+    SnigletFont
     UbuntuFont
