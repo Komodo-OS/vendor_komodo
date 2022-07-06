@@ -14,8 +14,8 @@
 # limitations under the License.
 
 # Komodo Version
-KOMODO_PLATFORM_VERSION := 4.3
-KOMODO_VERSION_NAME := SweetPea
+KOMODO_PLATFORM_VERSION := 4.4
+KOMODO_VERSION_NAME := Seroja
 
 OTA_VERSION := 12.1
 
