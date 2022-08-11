@@ -14,8 +14,8 @@
 # limitations under the License.
 
 # Komodo Version
-KOMODO_PLATFORM_VERSION := 4.4
-KOMODO_VERSION_NAME := Seroja
+KOMODO_PLATFORM_VERSION := 4.5
+KOMODO_VERSION_NAME := Snowdrop
 
 OTA_VERSION := 12.1
 
