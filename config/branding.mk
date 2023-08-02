@@ -14,10 +14,10 @@
 # limitations under the License.
 
 # Komodo Version
-KOMODO_PLATFORM_VERSION := 4.5
-KOMODO_VERSION_NAME := Snowdrop
+KOMODO_PLATFORM_VERSION := 5.0
+KOMODO_VERSION_NAME := Tamara
 
-OTA_VERSION := 12.1
+OTA_VERSION := 13
 
 # Define Var
 CURRENT_DEVICE=$(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3)
