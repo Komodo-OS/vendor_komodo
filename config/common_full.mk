@@ -1,4 +1,4 @@
-# Inherit common PixelExperience stuff
-$(call inherit-product, vendor/aosp/config/common.mk)
+# Inherit common KomodoOS stuff
+$(call inherit-product, vendor/komodo/config/common.mk)
 
 PRODUCT_SIZE := full
