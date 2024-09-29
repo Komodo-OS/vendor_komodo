@@ -176,6 +176,11 @@ ifeq ($(WITH_GAPPS), true)
     $(call inherit-product, vendor/google/gms/config.mk)
 endif
 
+# LMOFreeform
+PRODUCT_PACKAGES += \
+    LMOFreeform \
+    LMOFreeformSidebar
+
 # Openssh
 PRODUCT_PACKAGES += \
     scp \
