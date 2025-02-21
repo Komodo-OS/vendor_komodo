@@ -1,45 +1,26 @@
-PRODUCT_VERSION_MAJOR = 22
-PRODUCT_VERSION_MINOR = 1
+#
+# Copyright (C) 2024 FortuneOS
+# Copyright (C) 2025 KomodoOS
+#
+# SPDX-License-Identifier: Apache-2.0
+#
 
-ifeq ($(LINEAGE_VERSION_APPEND_TIME_OF_DAY),true)
-    LINEAGE_BUILD_DATE := $(shell date -u +%Y%m%d_%H%M%S)
+KOMODO_BRAND := KomodoOS
+KOMODO_BUILD_VERSION := Varanus
+KOMODO_BUILD_DATE := $(shell date -u +%Y%m%d-%H%M)
+
+DEVICE_LIST := $(shell cat official_devices/devices.list)
+
+ifneq (,$(findstring $(KOMODO_BUILD),$(DEVICE_LIST)))
+    KOMODO_BUILD_TYPE := OFFICIAL
 else
-    LINEAGE_BUILD_DATE := $(shell date -u +%Y%m%d)
+    KOMODO_BUILD_TYPE := UNOFFICIAL
 endif
+KOMODO_VERSION := $(KOMODO_BRAND)_$(KOMODO_BUILD)-$(KOMODO_BUILD_VERSION)-$(KOMODO_BUILD_DATE)-$(KOMODO_BUILD_TYPE)
+# KomodoOS Platform Version
+PRODUCT_PRODUCT_PROPERTIES += \
+    org.komodo.build.version=$(KOMODO_BUILD_VERSION) \
+    org.komodo.build.date=$(KOMODO_BUILD_DATE) \
+    org.komodo.build.type=$(KOMODO_BUILD_TYPE) \
+    org.komodo.version=$(KOMODO_VERSION)
 
-# Set LINEAGE_BUILDTYPE from the env RELEASE_TYPE, for jenkins compat
-
-ifndef LINEAGE_BUILDTYPE
-    ifdef RELEASE_TYPE
-        # Starting with "LINEAGE_" is optional
-        RELEASE_TYPE := $(shell echo $(RELEASE_TYPE) | sed -e 's|^LINEAGE_||g')
-        LINEAGE_BUILDTYPE := $(RELEASE_TYPE)
-    endif
-endif
-
-# Filter out random types, so it'll reset to UNOFFICIAL
-ifeq ($(filter RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL,$(LINEAGE_BUILDTYPE)),)
-    LINEAGE_BUILDTYPE := UNOFFICIAL
-    LINEAGE_EXTRAVERSION :=
-endif
-
-ifeq ($(LINEAGE_BUILDTYPE), UNOFFICIAL)
-    ifneq ($(TARGET_UNOFFICIAL_BUILD_ID),)
-        LINEAGE_EXTRAVERSION := -$(TARGET_UNOFFICIAL_BUILD_ID)
-    endif
-endif
-
-LINEAGE_VERSION_SUFFIX := $(LINEAGE_BUILD_DATE)-$(LINEAGE_BUILDTYPE)$(LINEAGE_EXTRAVERSION)-$(LINEAGE_BUILD)
-
-# Internal version
-LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(LINEAGE_VERSION_SUFFIX)
-
-# Display version
-LINEAGE_DISPLAY_VERSION := $(PRODUCT_VERSION_MAJOR)-$(LINEAGE_VERSION_SUFFIX)
-
-# LineageOS version properties
-PRODUCT_SYSTEM_PROPERTIES += \
-    ro.lineage.version=$(LINEAGE_VERSION) \
-    ro.lineage.display.version=$(LINEAGE_DISPLAY_VERSION) \
-    ro.lineage.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
-    ro.lineage.releasetype=$(LINEAGE_BUILDTYPE)
