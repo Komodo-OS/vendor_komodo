@@ -112,12 +112,6 @@ ifneq ($(TARGET_DISABLE_EPPE),true)
 $(call enforce-product-packages-exist-internal,$(wildcard device/*/$(LINEAGE_BUILD)/$(TARGET_PRODUCT).mk),product_manifest.xml rild Calendar Launcher3 Launcher3Go Launcher3QuickStep Launcher3QuickStepGo android.hidl.memory@1.0-impl.vendor vndk_apex_snapshot_package)
 endif
 
-# Bootanimation
-TARGET_SCREEN_WIDTH ?= 1080
-TARGET_SCREEN_HEIGHT ?= 1920
-PRODUCT_PACKAGES += \
-    bootanimation.zip
-
 # Build Manifest
 PRODUCT_PACKAGES += \
     build-manifest
@@ -268,6 +262,9 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/crowdin/overlay
 
 PRODUCT_EXTRA_RECOVERY_KEYS += \
     vendor/komodo/build/target/product/security/lineage
+
+# Bootanimation
+include vendor/komodo/config/bootanimation.mk
 
 include vendor/komodo/config/version.mk
 
