@@ -178,6 +178,11 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/%/libfuse-lite.so \
     system/%/libntfs-3g.so
 
+# GAPPS
+ifeq ($(WITH_GAPPS), true)
+    $(call inherit-product, vendor/google/gms/config.mk)
+endif
+
 # Openssh
 PRODUCT_PACKAGES += \
     scp \
