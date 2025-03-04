@@ -130,8 +130,7 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_PACKAGES += \
-    LineageSettingsProvider \
-    Updater
+    LineageSettingsProvider
 
 PRODUCT_COPY_FILES += \
     vendor/komodo/prebuilt/common/etc/init/init.komodo-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.komodo-updater.rc
