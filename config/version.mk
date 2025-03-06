@@ -39,5 +39,4 @@ PRODUCT_PRODUCT_PROPERTIES += \
     org.komodo.build_date=$(KOMODO_BUILD_DATE) \
     org.komodo.build_date_utc=$(KOMODO_BUILD_DATE_UTC) \
     org.komodo.build_type=$(KOMODO_BUILD_TYPE) \
-    ro.komodo.maintainer=$(Komodo_MAINTAINER)
-
+    org.komodo.maintainer=$(KOMODO_MAINTAINER)
