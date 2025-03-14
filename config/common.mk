@@ -171,6 +171,10 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/%/libfuse-lite.so \
     system/%/libntfs-3g.so
 
+# GameSpace
+PRODUCT_PACKAGES += \
+    GameSpace
+
 # GAPPS
 ifeq ($(WITH_GAPPS), true)
     $(call inherit-product, vendor/google/gms/config.mk)
