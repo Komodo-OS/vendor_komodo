@@ -17,10 +17,14 @@ KOMODO_DATE_MINUTE := $(shell date -u +%M)
 KOMODO_BUILD_DATE_UTC := $(shell date -d '$(KOMODO_DATE_YEAR)-$(KOMODO_DATE_MONTH)-$(KOMODO_DATE_DAY) $(KOMODO_DATE_HOUR):$(KOMODO_DATE_MINUTE) UTC' +%s)
 KOMODO_BUILD_DATE := $(KOMODO_DATE_YEAR)$(KOMODO_DATE_MONTH)$(KOMODO_DATE_DAY)-$(KOMODO_DATE_HOUR)$(KOMODO_DATE_MINUTE)
 
-DEVICE_LIST := $(shell cat official_devices/devices.list)
-
-ifneq (,$(findstring $(KOMODO_BUILD),$(DEVICE_LIST)))
-    KOMODO_BUILD_TYPE := OFFICIAL
+ifeq ($(KOMODO_OFFICIAL), true)
+    DEVICE_LIST := $(shell cat official_devices/devices.list)
+    
+    ifneq (,$(findstring $(KOMODO_BUILD),$(DEVICE_LIST)))
+        KOMODO_BUILD_TYPE := OFFICIAL
+    else
+        KOMODO_BUILD_TYPE := UNOFFICIAL
+    endif
 else
     KOMODO_BUILD_TYPE := UNOFFICIAL
 endif
