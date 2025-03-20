@@ -241,8 +241,12 @@ endif
 
 # SetupWizard
 PRODUCT_PRODUCT_PROPERTIES += \
-    setupwizard.theme=glif_v4 \
     setupwizard.feature.day_night_mode_enabled=true
+
+ifneq ($(WITH_GAPPS), true)
+    PRODUCT_PRODUCT_PROPERTIES += \
+        setupwizard.theme=glif_v4
+endif
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/komodo/overlay/no-rro
 PRODUCT_PACKAGE_OVERLAYS += \
