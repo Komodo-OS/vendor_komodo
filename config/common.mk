@@ -278,6 +278,8 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 # Bootanimation
 include vendor/komodo/config/bootanimation.mk
 
+-include vendor/komodo-priv/config.mk
+
 include vendor/komodo/config/version.mk
 
 -include vendor/lineage-priv/keys/keys.mk
