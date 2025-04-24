@@ -8,7 +8,10 @@
 KOMODO_BRAND := KomodoOS
 KOMODO_BUILD_VERSION := Varanus
 KOMODO_BASE_VERSION := 5.0
-KOMODO_BUILD_TYPE ?= UNOFFICIAL
+
+ifneq ($(wildcard $TOP/vendor/komodo-priv/),)
+    KOMODO_BUILD_TYPE := UNOFFICIAL
+endif
 
 KOMODO_DATE_YEAR := $(shell date -u +%Y)
 KOMODO_DATE_MONTH := $(shell date -u +%m)
